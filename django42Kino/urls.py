@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from tkinter.font import names
+
 from django.contrib import admin
 from django.urls import path
 from appkino import views
@@ -21,4 +23,8 @@ from appkino import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('kino/', views.kinoList.as_view() , name = 'allkino'),
+    path('artist/', views.artistList.as_view() , name = 'allartists'),
+    path('kino/<str:title>/<int:pk>/', views.kinoDetail.as_view() , name = 'oneKino'),
+    # path('kino/<str:num>', views.num , name = 'oneKino'),
 ]

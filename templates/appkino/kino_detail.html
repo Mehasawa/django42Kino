@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <h2>Фильм {{kino.title}}</h2>
+    <img src="{% static kino.poster %}" alt="" width="450px">
+    <h3>Год выпуска {{ kino.year }}</h3>
+    <h3>Страна выпуска {{ kino.country }}</h3>
+    <ul>
+    {% for one in kino.artist.all %}
+    <li>
+        {{ one.name }}
+    </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -8,12 +8,22 @@
 </head>
 <body>
     {% block menu %}
-
+        <nav>
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'allkino' %}">Каталог Фильмов</a>
+            <a href="{% url 'allartists' %}">Каталог Актеров</a>
+        </nav>
     {% endblock %}
 
     {% block content %}
         <h2>Привет гость</h2>
         <h3>Сайт про кино</h3>
+        <h2>У нас на сайте {{ films.count }} фильмов</h2>
+        <h2>У нас на сайте {{ artists.count }} актеров</h2>
+        
+        <h3>Рекомендуем посмотреть кино
+            <a href="kino/{{ randomFilm.get_absolute_url }}">{{ randomFilm }}</a>
+        </h3>
     {% endblock %}
 </body>
 </html>
