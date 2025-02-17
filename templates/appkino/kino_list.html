@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
     <h2>Каталог Кино</h2>
+
     <ul>
     {% for one in kino_list %}
     <li>
@@ -13,4 +14,20 @@
     </li>
     {% endfor %}
     </ul>
+
+ <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><<<</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">>>></a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}

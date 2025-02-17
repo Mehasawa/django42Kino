@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Это ваш кабинет {{ user.username }}</h2>
+    <h2>Дата регистрации {{ user.date_joined }}</h2>
+    <h2>Ваша почта {{ user.email }}</h2>
+    <h2>Ваш баланс {{ user.profile.balance }} рублей</h2>
+    <h2>Ваш уровень подписки {{ user.profile.podpiska }}</h2>
+
+    <a href="{% url 'kabinetChange' %}">
+        <button>Сменить подписку</button>
+    </a>
+    {% if form %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Сменить">
+    </form>
+    {% endif %}
+{% endblock %}

@@ -12,4 +12,27 @@
     </li>
     {% endfor %}
     </ul>
+    <h3>Подписка {{ kino.podpiska }}</h3>
+    <h4>Просмотр фильма:</h4>
+    {% if user.is_authenticated %}
+    
+      {% if user.profile.podpiska.id >= kino.podpiska.id %}
+        <iframe
+                width="720" height="405" 
+                src="{{ kino.trailer }}"
+                frameBorder="0" allow="clipboard-write; autoplay" 
+                allowFullScreen>
+        </iframe>
+        {% else %}
+        
+          <a href="{% url 'kabinet' %}">
+          <button>Купите подписку</button>
+          </a>
+        {% endif %}
+    
+    {% else %}
+          <a href="{% url 'login' %}">
+          <button>Авторизуйтесь для просмотра</button>
+          </a>
+    {% endif %}
 {% endblock %}

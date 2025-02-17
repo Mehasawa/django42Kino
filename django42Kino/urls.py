@@ -17,8 +17,9 @@ Including another URLconf
 from tkinter.font import names
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from appkino import views
+import captcha
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,12 @@ urlpatterns = [
     path('kino/', views.kinoList.as_view() , name = 'allkino'),
     path('artist/', views.artistList.as_view() , name = 'allartists'),
     path('kino/<str:title>/<int:pk>/', views.kinoDetail.as_view() , name = 'oneKino'),
+    path('auth/', include('django.contrib.auth.urls')),
+    path('accounts/profile/', views.index),
+    path('auth/registration/', views.registration, name='reg'),
+    path('captcha/', include('captcha.urls')),
+    path('accounts/login/', views.index),
+    path('kabinet/', views.profile, name = 'kabinet'),
+    path('kabinet/change/', views.profileChange, name = 'kabinetChange'),
     # path('kino/<str:num>', views.num , name = 'oneKino'),
 ]

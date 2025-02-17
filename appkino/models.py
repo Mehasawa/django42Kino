@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Genre(models.Model):
     title = models.CharField(max_length=100, verbose_name='Жанр')
@@ -58,3 +58,11 @@ class Kino(models.Model):
     def get_absolute_url(self):
         return f'{self.title}/{self.id}/'
         # return f'123'
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    podpiska = models.ForeignKey(Podpiska, on_delete=models.SET_DEFAULT, default=1)
+    balance = models.IntegerField(default=1000)
+
+    def __str__(self):
+        return self.user.username

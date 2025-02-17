@@ -6,6 +6,10 @@ admin.site.register(Director)
 admin.site.register(Genre)
 admin.site.register(Country)
 
+class adminProfile(admin.ModelAdmin):
+    list_display = ('user','podpiska','balance')
+admin.site.register(Profile, adminProfile)
+
 class adminPodpiska(admin.ModelAdmin):
     list_display = ('title','price')
 
