@@ -35,4 +35,19 @@
           <button>Авторизуйтесь для просмотра</button>
           </a>
     {% endif %}
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'otziv' kino.id %}" method="post">
+    {% csrf_token %}
+    {{ kino.getFormotziv }}
+        <input type="submit" value="Отправить">
+    </form>
+    {% endif %}
+    
+    {% for one in kino.getOtziv %}
+     <div class="review">
+    <h4>{{ one.user }}</h4>
+    <p>{{ one.text }}</p>
+    </div>
+    {% endfor %}
 {% endblock %}

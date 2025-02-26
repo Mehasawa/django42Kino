@@ -34,5 +34,6 @@ urlpatterns = [
     path('accounts/login/', views.index),
     path('kabinet/', views.profile, name = 'kabinet'),
     path('kabinet/change/', views.profileChange, name = 'kabinetChange'),
+    path('otziv/<int:pk>/', views.funcOtziv, name='otziv'),
     # path('kino/<str:num>', views.num , name = 'oneKino'),
 ]

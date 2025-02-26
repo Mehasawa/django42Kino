@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 class Genre(models.Model):
     title = models.CharField(max_length=100, verbose_name='Жанр')
@@ -59,6 +60,13 @@ class Kino(models.Model):
         return f'{self.title}/{self.id}/'
         # return f'123'
 
+    def getOtziv(self):
+        return self.otziv_set.all()
+
+    def getFormotziv(self):
+        from .forms import OtzivForm
+        return OtzivForm()
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     podpiska = models.ForeignKey(Podpiska, on_delete=models.SET_DEFAULT, default=1)
@@ -66,3 +74,8 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Otziv(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default='user', verbose_name='Пользователь')
+    text = models.TextField(verbose_name='отзыв')
+    film = models.ForeignKey(Kino, on_delete=models.CASCADE, verbose_name='Кино')

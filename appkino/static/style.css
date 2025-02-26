@@ -1,0 +1,155 @@
+/* Общие стили для ссылок и кнопки отправки */
+nav a,
+nav input[type="submit"] {
+    display: block;
+    float: left;
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 17px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Вариант 3: Фиолетовый */
+nav.purple-theme a,
+nav.purple-theme input[type="submit"] {
+    background-color: #6f42c1; /* Фиолетовый фон */
+    color: white;
+}
+
+nav.purple-theme a:hover,
+nav.purple-theme input[type="submit"]:hover {
+    background-color: #563d7c; /* Более темный фиолетовый при наведении */
+    color: white;
+}
+
+nav.purple-theme a.active {
+    background-color: #563d7c; /* Более темный фиолетовый для активной ссылки */
+    color: white;
+}
+
+nav.purple-theme {
+    background-color: #212529; /* Темно-серый фон меню */
+}
+nav{
+    display: block;
+    overflow: hidden; /* Предотвращает переполнение контента */
+  padding: 10px; /* Отступы вокруг содержимого */
+}
+
+form {
+  margin-bottom: 20px; /* Отступ снизу */
+}
+
+form label {
+  display: block; /* Каждая метка на новой строке */
+  margin-bottom: 5px; /* Отступ между меткой и полем */
+  font-weight: bold; /* Жирный шрифт для меток */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+  width: 50%; /* Занимает всю ширину контейнера */
+  padding: 10px; /* Внутренние отступы */
+  margin-bottom: 15px; /* Отступ снизу */
+  border: 1px solid #ccc; /* Серая рамка */
+  border-radius: 4px; /* Скругленные углы */
+  box-sizing: border-box; /* Учитывает padding и border в ширине */
+  font-size: 16px; /* Размер шрифта */
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form textarea:focus {
+  outline: none; /* Убирает обводку при фокусе */
+  border-color: #66afe9; /* Более яркая рамка при фокусе */
+  box-shadow: 0 0 5px #66afe9; /* Тень при фокусе */
+}
+
+form input[type="submit"] {
+  background-color: #4CAF50; /* Зеленый фон */
+  color: white; /* Белый текст */
+  padding: 12px 20px; /* Отступы */
+  border: none; /* Без рамки */
+  border-radius: 4px; /* Скругленные углы */
+  cursor: pointer; /* Курсор-указатель */
+  font-size: 16px; /* Размер шрифта */
+}
+
+form input[type="submit"]:hover {
+  background-color: #3e8e41; /* Более темный зеленый при наведении */
+}
+.card {
+  border: 1px solid #ddd;
+    width: 20%;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;             /* Включаем Flexbox */
+  flex-direction: column;   /* Элементы располагаются вертикально */
+  align-items: stretch;    /* Растягивает элементы по ширине карточки */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.card a {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.card a:hover {
+  color: #007bff;
+}
+
+.card p {
+  color: #666;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+li {
+    list-style-type: none;
+}
+.review {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+  display: flex; /* Включаем Flexbox */
+  flex-direction: column; /* Элементы располагаются вертикально */
+}
+
+.review h4 {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.review p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.review p:last-child { /* Дополнительно, чтобы не было отступа у последнего элемента */
+  margin-bottom: 0;
+}
